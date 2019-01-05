@@ -1,53 +1,46 @@
 
-# coding: utf-8
-
-# In[1]:
+#Importing Library 
 
 from bs4 import BeautifulSoup
 import urllib.request
 
 
-# In[5]:
+#Extracting content from HTML page
 
 page= urllib.request.urlopen('https://statecancerprofiles.cancer.gov/quick-profiles/index.php?statename=newjersey')
 
 
-# In[6]:
+# Applying BeautifulSoup object to page variable and applying HTML parser
 
 soup=BeautifulSoup(page,'html.parser')
 
 
-# In[7]:
+# printing the object
 
 print(soup)
 
 
-# In[8]:
+# Extracting content from XML page and storing it in webpage variable 
 
 webpage= urllib.request.urlopen('https://data.lacity.org/api/views/nxs9-385f/rows.xml?accessType=DOWNLOAD')
 
 
-# In[9]:
+# Applying BeautifulSoup object to webpage variable and applying XML parser
 
 soup1=BeautifulSoup(webpage,'lxml')
 
 
-# In[11]:
+# printing the object
 
 print(soup1.prettify())
 
 
-# In[12]:
+# Extracting relevant tags
 
 zip_code=soup1.find_all('zip_code')
 
-
-# In[13]:
-
 zip_code
 
-
-# In[ ]:
 
 
 
